@@ -1,0 +1,262 @@
+
+.intro {
+  position: relative;
+  padding-top: 180px;
+  margin: 0;
+
+  background-image: url("../img/back-desktop.jpg");
+  background-color: $dark-text;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+
+  &.intro--index {
+    padding-top: 210px;
+  }
+}
+
+.section__wrapper {
+  display: flex;
+  max-width: 940px;
+  position: relative;
+}
+
+.intro__content {
+  position: relative;
+
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  max-width: 320px;
+  margin: 0 40px;
+
+  &::after {
+    content: '';
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    right: -570px;
+    width: 550px;
+    height: 645px;
+    background-position: 66% 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url("../img/main-phone.png");
+  }
+
+  &--pages {
+    max-width: 750px;
+    padding: 5px 0;
+    margin: 0 auto;
+
+    &::after {
+      display: none;
+    }
+  }
+}
+
+.mobile__img {
+  display: none;
+}
+
+.intro__title {
+  margin-top: 0;
+  margin-bottom: 60px;
+  padding: 0;
+  @include font(50px, normal, 300, $white);
+  text-align: center;
+
+  &--pages {
+    margin-bottom: 100px;
+  }
+}
+
+.intro__button {
+  display: flex;
+  margin-bottom: 75px;
+}
+
+.intro__apps {
+  margin-bottom: 60px;
+  display: flex;
+  width: 235px;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.intro__subtitle {
+  @include font(18px, 24px, 300, $white);
+  text-align: center;
+  margin-bottom: 60px;
+  margin-top: 0;
+}
+
+
+@media (max-width: $tablet) {
+  .intro {
+    padding-top: 180px;
+
+    &.intro--index {
+      padding-top: 100px;
+    }
+  }
+
+  .section__wrapper {
+    max-width: 700px;
+  }
+
+  .intro__content {
+    position: relative;
+    z-index: 1;
+
+    max-width: 320px;
+    margin: 0 40px;
+
+    &::after {
+      bottom: 0;
+      right: -310px;
+      width: 472px;
+      height: 545px;
+      background-position: 66% 100%;
+      z-index: -1;
+    }
+
+    &--pages {
+      max-width: 500px;
+      padding: 5px 0;
+      margin: 0 auto;
+
+      &::after {
+        display: none;
+      }
+    }
+  }
+
+  .mobile__img {
+    display: none;
+  }
+
+  .intro__title {
+    margin-bottom: 40px;
+    font-size: 40px;
+
+    &--pages {
+      margin-bottom: 70px;
+    }
+  }
+
+  .intro__button {
+    margin-bottom: 50px;
+  }
+
+  .intro__apps {
+    margin-bottom: 40px;
+  }
+
+  .intro__subtitle {
+    margin-bottom: 100px;
+  }
+}
+
+
+@media (max-width: $mobile) {
+  .intro {
+    position: relative;
+    padding-top: 35px;
+    margin: 0;
+
+    background-image: url("../img/back-desktop.jpg");
+    background-color: $dark-text;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+
+    &.intro--index {
+      padding-top: 110px;
+    }
+  }
+
+  .section__wrapper {
+    position: relative;
+    flex-direction: column;
+    margin-top: 0;
+  }
+
+  .intro__content {
+    max-width: 100%;
+    padding: 30px 20px;
+    margin: 0;
+    background-color: $dark-text;
+
+    &::after {
+      display: none;
+    }
+
+    &--pages {
+      max-width: 240px;
+      padding: 5px 0;
+      margin: 0 auto;
+      background-color: transparent;
+    }
+  }
+
+  .mobile__img {
+    display: flex;
+    position: relative;
+    width: 320px;
+    height: 314px;
+    margin: 0 auto;
+    order: -1;
+
+    &::after {
+      content: '';
+      display: flex;
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 320px;
+      height: 314px;
+      background-position: 66% 100%;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-image: url("../img/main-phone.png");
+    }
+  }
+
+  .intro__title {
+    display: none;
+  }
+
+  .intro__title--pages {
+    display: flex;
+    font-size: 24px;
+    margin-bottom: 50px;
+  }
+
+  .intro__button {
+    display: flex;
+    flex-wrap: nowrap;
+    max-width: 320px;
+    margin-bottom: 30px;
+  }
+
+  .intro__apps {
+    margin-bottom: 30px;
+    display: flex;
+    width: 250px;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  .intro__subtitle {
+    max-width: 320px;
+    @include font(14px, normal, 300, $white);
+    text-align: center;
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+}

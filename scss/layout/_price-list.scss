@@ -1,0 +1,286 @@
+.price {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  background-color: $grey;
+  z-index: 0;
+
+  // декоративный эддемент фона
+  &::after {
+    content: "";
+    top: -50px;
+    position: absolute;
+    width: 100%;
+    height: 100px;
+    background-color: white;
+    transform: skewY(-3deg);
+    z-index: 2;
+  }
+
+  .price__table {
+    margin-top: 160px;
+    margin-bottom: 100px;
+  }
+}
+
+.table {
+  display: flex;
+  max-width: 1024px;
+  width: 100%;
+  padding: 0 40px;
+
+  .table__column {
+    display: flex;
+    flex-direction: column;
+    width: calc(100%/4);
+    margin-right: -2px;
+
+    .table__cell {
+      display: flex;
+      align-items: center;
+      @include font();
+      width: 100%;
+      max-width: 234px;
+      height: 59px;
+      padding: 15px;
+      border: 1px solid #e5e5e5;
+      background-color: $white;
+    }
+
+    .table__cell--empty {
+      visibility: hidden;
+      border: none;
+      height: 95px;
+    }
+
+    .table__cell--hit {
+      position: relative;
+      overflow: hidden;
+
+      &::after {
+        content: "ХИТ";
+        position: absolute;
+        background-color: $pink;
+        @include font(15px, 21px, 600, $white);
+        text-transform: uppercase;
+        width: 100px;
+        height: 25px;
+        top: 15px;
+        left: -25px;
+        transform: rotate(-45deg);
+        vertical-align: center;
+        padding: 2px
+      }
+    }
+
+    .table__cell--package {
+      display: flex;
+      flex-direction: column;
+      height: 95px;
+      background-color: $dark-text;
+      @include font(24px, 30px, 300, $white);
+      text-align: center;
+      padding-top: 15px;
+
+      span {
+        @include font(18px, 30px, 700, $white);
+        text-transform: uppercase;
+      }
+    }
+
+    .table__cell--check {
+      font-size: 0;
+      line-height: 0;
+      background: url("../svg/check.svg") no-repeat 50% 50%, $white;
+    }
+
+    .table__cell--cross {
+      font-size: 0;
+      line-height: 0;
+      background: url("../svg/cancel.svg") no-repeat 50% 50%,
+      $white;
+    }
+  }
+}
+
+@media (max-width: $tablet) {
+  .price {
+    .price__table {
+      margin-top: 120px;
+      margin-bottom: 70px;
+    }
+
+    //.slick-initialized{
+    //  visibility: hidden;
+    //  display: none;
+    //}
+  }
+
+  .table {
+    max-width: 700px;
+    padding: 0 20px;
+
+    .table__column {
+
+      .table__cell {
+        font-size: 14px;
+        height: 45px;
+        padding: 10px;
+      }
+
+      .table__cell--empty {
+        height: 75px;
+      }
+
+      .table__cell--hit {
+        &::after {
+          @include font(10px, 21px, 600, $white);
+          width: 100px;
+          height: 20px;
+          top: 7px;
+          left: -32px;
+          padding: 0;
+        }
+      }
+
+      .table__cell--package {
+        height: 75px;
+        font-size: 18px;
+        line-height: 18px;
+        padding-top: 10px;
+
+        span {
+          font-size: 16px;
+        }
+      }
+
+      .table__cell--check {
+        font-size: 0;
+        line-height: 0;
+        background: url("../svg/check.svg") no-repeat 50% 50%, $white;
+        background-size: 23px 20px;
+      }
+
+      .table__cell--cross {
+        font-size: 0;
+        line-height: 0;
+        background: url("../svg/cancel.svg") no-repeat 50% 50%,
+        $white;
+        background-size: 20px 20px;
+      }
+    }
+  }
+}
+
+@media (max-width: $mobile) {
+  .price {
+    z-index: 0;
+    &::after {
+      top: -35px;
+      height: 50px;
+      z-index: 1;
+    }
+    .price__table {
+      margin-top: 100px;
+    }
+
+    .slick-initialized{
+      visibility: visible;
+      display: flex;
+    }
+  }
+
+  .table {
+    display: flex;
+    flex-direction: column;
+    max-width: 699px;
+    width: 100%;
+    padding: 0;
+
+    .slick-arrow {
+      display: none;
+    }
+
+    .slick-list {
+      max-width: 699px;
+    }
+
+    .slick-dots {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      list-style: none;
+      padding: 0;
+
+      li {
+        display: flex;
+
+        button {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 0;
+          line-height: 0;
+          visibility: hidden;
+          border: none;
+          padding: 0;
+
+          &::before {
+            visibility: visible;
+            margin: 6px;
+            content: '';
+            width: 12px;
+            height: 12px;
+            border: 3px solid $white;
+            border-radius: 6px;
+            background-color: $dark-text;
+            opacity: 0.3;
+            cursor: pointer;
+          }
+        }
+
+        &.slick-active {
+          button {
+            &::before {
+              opacity: 1;
+              border-color: $dark-text;
+              background-color: white;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+
+    .table__column {
+      width: 100%;
+
+      .table__cell {
+        display: flex;
+        align-items: center;
+        @include font();
+        width: 100%;
+        max-width: 699px;
+      }
+
+      .table__cell--package {
+        color: $white;
+        line-height: 18px;
+      }
+
+      .table__cell--check {
+        font-size: 14px;
+        line-height: 30px;
+        background: url("../svg/check.svg") no-repeat 95% 50%, $white;
+      }
+
+      .table__cell--cross {
+        font-size: 14px;
+        line-height: 30px;
+        background: url("../svg/cancel.svg") no-repeat 95% 50%,
+        $white;
+      }
+    }
+  }
+}

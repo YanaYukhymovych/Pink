@@ -1,0 +1,634 @@
+.form {
+  max-width: 1040px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  padding: 0 40px;
+  align-items: center;
+  background-color: $white;
+
+  h3 {
+    @include font();
+    margin-top: 100px;
+    max-width:  755px;
+    text-align: center;
+    margin-bottom: 0;
+  }
+
+  .block__wrapper {
+    display: flex;
+    width: 100%;
+
+    .form__block {
+      width: 50%;
+    }
+  }
+}
+
+.form__block {
+  @include font();
+  width: 100%;
+  margin-top: 70px;
+
+  &--fieldset {
+    border: solid 2px #e5e5e5;
+    padding: 0;
+
+    legend {
+      text-align: center;
+      padding: 0 35px;
+      color: $pink;
+      font-size: 14px;
+      text-transform: uppercase;
+    }
+  }
+}
+
+.block__passport {
+  display: flex;
+  flex-direction: column;
+  margin-right: 74px;
+  justify-content: space-between;
+  padding-top: 15px;
+
+  .passport__row {
+    display: flex;
+    align-items: center;
+
+    .form__label {
+      color: $pink;
+      font-size: 14px;
+      margin-right: 20px;
+      text-transform: uppercase;
+      user-select: none;
+      cursor: pointer;
+    }
+
+    .form__input {
+        height: 59px;
+        padding: 20px;
+        flex-grow: 1;
+        border: solid 2px $grey;
+
+      &:hover {
+        border: solid 2px $dark-text;
+        outline: none;
+      }
+
+      &:active,
+      &:focus {
+        border: solid 2px $pink;
+        outline: none;
+      }
+    }
+  }
+}
+
+.block__apps {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 57px;
+  margin: 0 75px;
+
+  .block__row {
+    display: flex;
+    align-items: center;
+    margin-top: 38px;
+
+    .form__input {
+      display: none;
+
+      &:checked + .form__label::after {
+        display: initial;
+      }
+    }
+
+    .form__label {
+      display: flex;
+      position: relative;
+      margin-left: 60px;
+      user-select: none;
+      cursor: pointer;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: -2px;
+        left: -60px;
+        width: 37px;
+        height: 37px;
+        border: solid 2px #e5e5e5;
+        background-color: #ffffff;
+        margin-right: 20px;
+        border-radius: 50%;
+        flex-shrink: 0;
+      }
+
+      &::after {
+        content: "";
+        display: none;
+        position: absolute;
+        flex-shrink: 0;
+        top: 10px;
+        left: -48px;
+        width: 13px;
+        height: 13px;
+        background-color: $pink;
+        border-radius: 50%;
+      }
+
+      &:hover::before {
+        border-color: $dark-text;
+      }
+
+      &:active::before {
+        border-color: $pink;
+      }
+    }
+  }
+}
+
+
+.block__contacts {
+  display: flex;
+  margin: 44px 60px 0 60px;
+
+  .form__row:not(:first-child) {
+    margin-left: 74px;
+  }
+
+  .form__row {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+
+    .input__wrapper {
+      display: flex;
+      position: relative;
+
+      &::before {
+        content: "";
+        display: flex;
+        z-index: 1;
+        position: absolute;
+        top: 3px;
+        right: 3px;
+        width: 58px;
+        height: 55px;
+        background-color: $grey;
+      }
+
+      &.input__wrapper--phone::after {
+        content: "";
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 20px;
+        height: 20px;
+        background: url("../img/phone.png") no-repeat 100% 100%;
+        z-index: 2;
+      }
+
+      &.input__wrapper--mail::after {
+        content: "";
+        position: absolute;
+        top: 17px;
+        right: 21px;
+        width: 20px;
+        height: 20px;
+        background: url("../img/mail.png") no-repeat 100% 100%;
+        z-index: 2;
+      }
+
+      .form__input {
+        flex-grow: 1;
+        height: 60px;
+        padding: 20px;
+        border: solid 2px $grey;
+
+        &:hover {
+          border: solid 2px $dark-text;
+          outline: none;
+        }
+
+        &:active,
+        &:focus {
+          border: solid 2px $pink;
+          outline: none;
+        }
+      }
+    }
+
+    .form__label {
+      color: $pink;
+      padding: 20px;
+      text-transform: uppercase;
+      font-size: 14px;
+      user-select: none;
+      cursor: pointer;
+    }
+  }
+}
+
+
+
+.block__achievements {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 50px;
+  margin-left: 50px;
+  margin-right: 0;
+  margin-bottom: 0;
+  max-width: 100%;
+
+  .achievements__item {
+    display: flex;
+    width: calc(100% / 3);
+    justify-content: space-between;
+    margin-bottom: 50px;
+
+
+    .form__input {
+      margin-left: 60px;
+      display: none;
+
+      &:checked + .form__label::after {
+        display: initial;
+      }
+    }
+
+    .form__label {
+      display: flex;
+      position: relative;
+      cursor: pointer;
+      user-select: none;
+
+      &::before {
+        content: "";
+        width: 33px;
+        height: 33px;
+        border: solid 2px #e5e5e5;
+        background-color: #ffffff;
+        flex-shrink: 0;
+        margin-right: 20px;
+      }
+
+      &::after {
+        content: "";
+        display: none;
+        position: absolute;
+        top: 10px;
+        left: 7px;
+        width: 22px;
+        height: 16px;
+        background: url("../svg/tick.svg") no-repeat 100% 100%;
+      }
+
+      &:hover::before {
+        border-color: $dark-text;
+      }
+
+      &:active::before {
+        border-color: $pink;
+      }
+    }
+  }
+}
+
+
+
+.block__feedback {
+  display: flex;
+  margin: 45px 60px;
+
+  textarea {
+    border: solid 2px #e5e5e5;
+    width: 100%;
+    padding: 20px;
+    text-align: left;
+    resize: none;
+
+    &:hover {
+      border-color: $dark-text;
+    }
+
+    &:focus,
+    &:active {
+      border-color: $pink;
+      outline: none;
+    }
+  }
+}
+
+.block__submit {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 70px;
+  align-items: center;
+
+  .button__confirm {
+    min-width: 300px;
+  }
+
+  .submit__footnote {
+    text-transform: uppercase;
+    font-size: 14px;
+
+    span {
+      color: $pink;
+    }
+
+    .mobile-hidden {
+      color: $dark-text;
+    }
+  }
+}
+
+//стили всех форм для планшета
+
+@media (max-width: $tablet) {
+  .form {
+    max-width: 700px;
+    padding: 0 20px;
+
+    h3 {
+      max-width: 500px;
+    }
+
+    .block__wrapper {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+
+      .form__block {
+        width: 100%;
+        margin-top: 0;
+      }
+    }
+  }
+
+  .form__block {
+    margin-top: 50px;
+  }
+
+
+
+  .block__passport {
+    margin-bottom: 50px;
+
+    .passport__row {
+      margin-top: 50px;
+    }
+  }
+
+
+
+  .block__contacts {
+    display: flex;
+    flex-direction: column;
+    margin: 44px 60px 0 60px;
+
+    .form__row:not(:first-child) {
+      margin-left: 0;
+    }
+  }
+
+
+
+  .block__achievements {
+    flex-direction: column;
+
+    .achievements__item {
+      display: flex;
+      width: 100%;
+      margin-bottom: 45px;
+    }
+  }
+
+  .block__submit {
+    .mobile-hidden {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: $mobile) {
+  .form {
+    max-width: 699px;
+    padding: 0;
+
+    h3 {
+      font-size: 14px;
+      margin-top: 50px;
+      max-width:  280px;
+      margin-bottom: 0;
+
+      .mobile-hidden {
+        display: none;
+      }
+    }
+
+    .block__wrapper {
+      display: flex;
+      width: 100%;
+      margin-right: -4px;
+
+
+        .form__block--grey {
+          width: 100%;
+          margin-left: -2px;
+          margin-right: -4px;
+
+          .form__legend--grey {
+            width: 100%;
+          }
+        }
+    }
+  }
+
+  .form__block {
+    @include font();
+    display: flex;
+    width: 100%;
+    margin-top: 0;
+    padding: 0 20px;
+
+    &--fieldset {
+      border: none;
+      padding: 0;
+    }
+
+    &--grey {
+      background-color: $grey;
+    }
+
+    .form__legend {
+      width: 100%;
+      padding-top: 40px;
+      padding-left: 20px;
+      padding-right: 20px;
+
+      &--grey {
+        background-color: $grey;
+      }
+
+      &--hide {
+        display: none;
+      }
+    }
+  }
+
+  .block__passport {
+    display: flex;
+    flex-direction: column;
+    margin-right: 0;
+    justify-content: space-between;
+    padding-top: 0;
+
+    .passport__row {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-top: 40px;
+
+      .form__label {
+        margin-right: 0;
+        margin-left: 20px;
+      }
+
+      .form__input {
+        width: 100%;
+      }
+    }
+  }
+
+  .block__apps {
+    display: flex;
+    padding-bottom: 57px;
+    margin: 0;
+    padding-left: 20px;
+    width: 100%;
+
+    .block__row {
+      display: flex;
+      align-items: center;
+      margin-top: 38px;
+
+
+      .form__label {
+        display: flex;
+        position: relative;
+        margin-left: 60px;
+      }
+    }
+  }
+
+  .block__contacts {
+    display: flex;
+    margin: 0;
+    width: 100%;
+    padding: 20px;
+
+    .form__row:not(:first-child) {
+      margin-left: 0;
+    }
+
+    .form__row {
+      display: flex;
+      flex-grow: 1;
+      flex-direction: column;
+
+      .input__wrapper {
+        display: flex;
+        position: relative;
+
+        &::before {
+          display: none;
+        }
+
+        &.input__wrapper--phone::after {
+          display: none;
+        }
+
+        &.input__wrapper--mail::after {
+          display: none;
+        }
+
+        .form__input {
+          flex-grow: 1;
+          height: 60px;
+          padding: 20px;
+          border: solid 2px $grey;
+        }
+      }
+
+      .form__label {
+        color: $pink;
+        padding: 20px;
+        text-transform: uppercase;
+        font-size: 14px;
+        user-select: none;
+        cursor: pointer;
+        order: -2;
+      }
+    }
+  }
+
+  .block__achievements {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    margin-top: 35px;
+    padding: 0 20px;
+    max-width: 100%;
+
+    .achievements__item {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      margin-bottom: 50px;
+
+      .form__input {
+        margin-left: 60px;
+        display: none;
+        }
+
+      .form__label {
+        display: flex;
+        position: relative;
+        cursor: pointer;
+        user-select: none;
+      }
+    }
+  }
+
+  .block__feedback {
+    margin: 20px 20px;
+
+    textarea {
+      padding: 20px;
+      text-align: center;
+      height: 200px;
+
+    }
+  }
+
+  .block__submit {
+    flex-direction: column;
+    padding: 0 20px;
+    margin-top: 20px;
+
+    .button__confirm {
+      min-width: 250px;
+    }
+
+    .submit__footnote {
+      margin-top: 35px;
+      margin-bottom: 0;
+
+      .mobile-hidden {
+        display: none;
+      }
+    }
+  }
+}

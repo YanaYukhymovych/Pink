@@ -1,0 +1,28 @@
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  min-width: 320px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.content {
+  margin: 0;
+  padding: 0;
+}
+
+.section__wrapper {
+  max-width: 1040px;
+  margin: 0 auto;
+}

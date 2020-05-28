@@ -1,0 +1,6 @@
+# WebStorm specific folders
+.DS_Store
+.idea
+
+# Modules
+node_modules

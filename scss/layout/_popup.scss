@@ -1,0 +1,40 @@
+.popup {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  max-width: 780px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 7px 15px 0 rgba(0, 1, 1, 0.15);
+}
+
+.popup__massage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 40px auto;
+  max-width: 400px;
+
+  h2 {
+    @include font(30px, 40px, 700, #000000);
+    margin: 0;
+  }
+
+  p {
+    @include font($font-weight: 24px, $color: #283645);
+    text-align: center;
+    margin: 0;
+    margin-top: 20px;
+  }
+}
+
+.popup__button {
+  display: flex;
+  justify-content: center;
+  background-color: #f2f2f2;
+
+  .button__confirm {
+    min-width: 350px;
+    margin: 50px 0;
+  }
+}

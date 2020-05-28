@@ -1,0 +1,217 @@
+.feedback {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  background-color: $white;
+
+  // slick - элементы слайдера (prev/next)
+  .slick-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+    border: none;
+    font-size: 0;
+    line-height: 0;
+    padding: 0;
+    margin: 50px;
+    margin-top: 100px;
+    cursor: pointer;
+
+    &::before {
+      content: "";
+      visibility: visible;
+      width: 22px;
+      height: 41px;
+      background: url("../svg/arrow.svg") no-repeat;
+      background-position: center;
+      background-size: cover;
+      opacity: 0.3;
+    }
+
+    &.slick-prev {
+      &::before {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+
+  // slick - элементы слайдера (точки)
+
+  .slick-list {
+    max-width: 700px;
+    outline: none;
+  }
+
+  .slick-dots {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    list-style: none;
+    padding: 0;
+    z-index: 2;
+
+    li {
+      display: flex;
+
+      button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 0;
+        line-height: 0;
+        visibility: hidden;
+        border: none;
+        padding: 0;
+
+        &::before {
+          visibility: visible;
+          margin: 6px;
+          content: '';
+          width: 12px;
+          height: 12px;
+          border: 3px solid $white;
+          border-radius: 6px;
+          background-color: $dark-text;
+          opacity: 0.3;
+          cursor: pointer;
+        }
+      }
+
+      &.slick-active {
+        button {
+          &::before {
+            opacity: 1;
+            border-color: $dark-text;
+            background-color: white;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+
+  .feedback-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    align-items: center;
+    max-width: 700px;
+    min-width: 699px;
+
+    outline: none;
+
+    &::before {
+      content: "";
+      width: 79px;
+      height: 63px;
+      background: url("../img/quotes.png") no-repeat 50% 50%;
+      margin-top: 70px;
+    }
+  }
+
+  .feedback__text {
+    @include font();
+    margin-top: 60px;
+    margin-bottom: 40px;
+    padding: 0 5px;
+    text-align: center;
+    max-width: 700px;
+    min-width: 699px;
+  }
+
+  .feedback__author {
+    @include font(24px, 30px, 700, #000000);
+  }
+
+  .feedback__profession {
+    @include font();
+    margin-bottom: 40px;
+  }
+}
+
+@media (max-width: $tablet) {
+  .feedback {
+
+    .slick-arrow {
+      display: none;
+      margin: 0;
+
+      &::before {
+        display: none;
+      }
+
+      &.slick-prev {
+        &::before {
+          display: none;
+        }
+      }
+    }
+
+    .feedback-wrapper {
+      max-width: 700px;
+      min-width: 320px;
+      padding: 0;
+
+      &::before {
+        display: none;
+      }
+    }
+
+    .feedback__text {
+      display: flex;
+      margin-top: 0;
+      max-width: 100%;
+      min-width: 600px;
+      padding: 40px 40px;
+      margin-bottom: 0;
+    }
+
+    .feedback__author {
+      @include font(20px, 30px, 700, $dark-text);
+    }
+
+    .feedback__profession {
+      @include font(14px);
+      margin-bottom: 0;
+    }
+  }
+}
+
+@media (max-width: $mobile) {
+  .feedback {
+    .feedback-wrapper {
+      display: flex;
+      max-width: 700px;
+      min-width: 320px;
+      width: 100vw;
+
+      &::before {
+        display: none;
+      }
+    }
+
+    .feedback__text {
+      display: flex;
+      font-size: 14px;
+      margin-top: 0;
+      max-width: 100%;
+      min-width: 320px;
+      padding: 20px 20px;
+      padding-bottom: 0;
+      margin-bottom: 0;
+    }
+
+    .feedback__author {
+      @include font(20px, 30px, 700, $dark-text);
+      order: -1;
+      margin-top: 50px;
+    }
+
+    .feedback__profession {
+      display: none;
+    }
+  }
+}
